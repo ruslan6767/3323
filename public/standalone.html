@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Польза — Подъездный Наблюдатель</title>
+  <title>ПОЛЬЗА — Бабушки на контроле вашего блага!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -14,6 +14,7 @@
       --accent: #FD79A8;
       --warning: #FDCB6E;
       --danger: #E17055;
+      --danger-deep: #D63031;
       --bg: #F8F9FD;
       --card: #FFFFFF;
       --text: #2D3436;
@@ -29,64 +30,19 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
+
     .bg-pattern {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background-image:
-        radial-gradient(circle at 20% 50%, rgba(108, 92, 231, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(0, 184, 148, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(253, 121, 168, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, rgba(108, 92, 231, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(253, 121, 168, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(214, 48, 49, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 60% 60%, rgba(0, 184, 148, 0.04) 0%, transparent 40%);
       pointer-events: none;
       z-index: 0;
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      position: relative;
-      z-index: 1;
-    }
-    header {
-      text-align: center;
-      padding: 40px 20px 30px;
-    }
-    .logo { font-size: 3rem; margin-bottom: 10px; }
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .subtitle {
-      color: var(--text-light);
-      font-size: 1.1rem;
-      margin-top: 8px;
-      font-weight: 600;
-    }
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-    .hero-stat {
-      text-align: center;
-    }
-    .hero-stat-value {
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--primary);
-    }
-    .hero-stat-label {
-      font-size: 0.75rem;
-      color: var(--text-light);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+
     .floating-particles {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -97,15 +53,190 @@
     .particle {
       position: absolute;
       font-size: 1.5rem;
-      opacity: 0.15;
+      opacity: 0.12;
       animation: floatUp linear infinite;
     }
     @keyframes floatUp {
       0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      10% { opacity: 0.15; }
-      90% { opacity: 0.15; }
+      10% { opacity: 0.12; }
+      90% { opacity: 0.12; }
       100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
     }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== HERO HEADER ===== */
+    header {
+      text-align: center;
+      padding: 50px 20px 40px;
+      position: relative;
+    }
+    .logo {
+      font-size: 4rem;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      animation: logoFloat 3s ease-in-out infinite;
+    }
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--danger-deep), var(--accent));
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 2px;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .slogan {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--danger-deep);
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      position: relative;
+      display: inline-block;
+    }
+    .slogan::before, .slogan::after {
+      content: '👵';
+      font-size: 1.2rem;
+      margin: 0 8px;
+    }
+    .subtitle {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-red {
+      background: linear-gradient(135deg, #FFEEF0, #FFD6DA);
+      color: var(--danger-deep);
+      border: 1px solid rgba(214,48,49,0.2);
+    }
+    .badge-purple {
+      background: linear-gradient(135deg, #F0EEFF, #E4E0FF);
+      color: var(--primary);
+      border: 1px solid rgba(108,92,231,0.2);
+    }
+    .badge-green {
+      background: linear-gradient(135deg, #E8FFF5, #D0F5E5);
+      color: #00785A;
+      border: 1px solid rgba(0,184,148,0.2);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      text-align: center;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      padding: 14px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      min-width: 110px;
+      transition: transform 0.2s;
+    }
+    .hero-stat:hover { transform: translateY(-3px); }
+    .hero-stat-value {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--danger-deep);
+    }
+    .hero-stat-label {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    .how-it-works {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .step {
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 20px 14px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      transition: transform 0.2s;
+    }
+    .step:hover { transform: translateY(-3px); }
+    .step-icon { font-size: 2rem; margin-bottom: 8px; }
+    .step-num {
+      display: inline-block;
+      width: 24px; height: 24px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 800;
+      line-height: 24px;
+      margin-bottom: 6px;
+    }
+    .step-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .step-desc {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* ===== UPLOAD ===== */
     .upload-zone {
       background: rgba(255,255,255,0.7);
       backdrop-filter: blur(20px);
@@ -123,24 +254,22 @@
     .upload-zone::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: conic-gradient(from 0deg, transparent 0%, rgba(108,92,231,0.03) 25%, transparent 50%);
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: conic-gradient(from 0deg, transparent 0%, rgba(214,48,49,0.03) 25%, transparent 50%);
       animation: rotateBg 15s linear infinite;
       pointer-events: none;
     }
     @keyframes rotateBg { to { transform: rotate(360deg); } }
     .upload-zone:hover, .upload-zone.dragover {
-      border-color: var(--primary);
-      background: rgba(240,238,255,0.8);
+      border-color: var(--danger);
+      background: rgba(255,238,240,0.6);
       transform: translateY(-3px);
-      box-shadow: 0 15px 50px rgba(108, 92, 231, 0.15), inset 0 1px 0 rgba(255,255,255,0.6);
+      box-shadow: 0 15px 50px rgba(214, 48, 49, 0.12), inset 0 1px 0 rgba(255,255,255,0.6);
     }
     .upload-zone.has-image {
       border-style: solid;
-      border-color: var(--secondary);
+      border-color: var(--danger);
       padding: 20px;
     }
     .upload-icon { font-size: 4rem; margin-bottom: 15px; display: block; }
@@ -156,19 +285,18 @@
     }
     .remove-btn {
       position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(0,0,0,0.6);
+      top: 10px; right: 10px;
+      background: rgba(214,48,49,0.8);
       color: white;
       border: none;
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       border-radius: 50%;
       font-size: 1.2rem;
       cursor: pointer;
       transition: background 0.2s;
     }
-    .remove-btn:hover { background: var(--danger); }
+    .remove-btn:hover { background: var(--danger-deep); }
+
     .analyze-btn {
       display: none;
       width: 100%;
@@ -177,7 +305,7 @@
       font-size: 1.2rem;
       font-weight: 800;
       color: white;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: linear-gradient(135deg, var(--danger), var(--danger-deep));
       border: none;
       border-radius: 14px;
       cursor: pointer;
@@ -186,6 +314,11 @@
       letter-spacing: 0.5px;
       position: relative;
       overflow: hidden;
+      animation: pulseBtn 2s ease-in-out infinite;
+    }
+    @keyframes pulseBtn {
+      0%, 100% { box-shadow: 0 4px 15px rgba(214,48,49,0.3); }
+      50% { box-shadow: 0 4px 30px rgba(214,48,49,0.5); }
     }
     .analyze-btn::after {
       content: '';
@@ -201,13 +334,16 @@
     }
     .analyze-btn:hover {
       transform: translateY(-3px) scale(1.01);
-      box-shadow: 0 12px 35px rgba(108, 92, 231, 0.35);
+      box-shadow: 0 12px 35px rgba(214, 48, 49, 0.4);
     }
     .analyze-btn:disabled {
       opacity: 0.6;
       cursor: not-allowed;
       transform: none;
+      animation: none;
     }
+
+    /* ===== LOADING ===== */
     .loading-overlay {
       display: none;
       position: fixed;
@@ -222,16 +358,17 @@
     }
     .loading-overlay.active { display: flex; }
     .spinner {
-      width: 80px;
-      height: 80px;
-      border: 6px solid var(--primary-light);
-      border-top-color: var(--primary);
+      width: 80px; height: 80px;
+      border: 6px solid rgba(214,48,49,0.2);
+      border-top-color: var(--danger-deep);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-    .loading-text { margin-top: 24px; font-size: 1.3rem; font-weight: 700; color: var(--primary); }
+    .loading-text { margin-top: 24px; font-size: 1.3rem; font-weight: 700; color: var(--danger-deep); }
     .loading-sub { margin-top: 8px; color: var(--text-light); font-size: 0.95rem; font-weight: 600; }
+
+    /* ===== RESULTS ===== */
     .results {
       display: none;
       margin-top: 30px;
@@ -241,6 +378,27 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    .alert-banner {
+      background: linear-gradient(135deg, #D63031, #E17055);
+      color: white;
+      border-radius: 16px;
+      padding: 16px 20px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      animation: flashAlert 1.5s ease-in-out 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    @keyframes flashAlert {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; transform: scale(1.02); }
+    }
+
     .result-card {
       background: rgba(255,255,255,0.75);
       backdrop-filter: blur(16px);
@@ -251,54 +409,75 @@
       margin-bottom: 20px;
       border: 1px solid rgba(255,255,255,0.3);
     }
+    .result-card.danger-border {
+      border: 2px solid rgba(214,48,49,0.3);
+      box-shadow: var(--shadow), 0 0 20px rgba(214,48,49,0.08);
+    }
+
     .result-header {
       display: flex;
       align-items: center;
       gap: 20px;
-      margin-bottom: 25px;
     }
     .result-photo {
-      width: 120px;
-      height: 120px;
+      width: 120px; height: 120px;
       border-radius: 16px;
       object-fit: cover;
-      border: 3px solid var(--primary-light);
+      border: 3px solid var(--danger);
     }
-    .result-summary h2 { font-size: 1.4rem; margin-bottom: 6px; }
+    .result-summary h2 { font-size: 1.4rem; margin-bottom: 6px; color: var(--danger-deep); }
     .result-time { color: var(--text-light); font-size: 0.85rem; font-weight: 600; }
+    .result-status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #FFEEF0, #FFD6DA);
+      color: var(--danger-deep);
+      margin-top: 6px;
+    }
+
     .overall-score { text-align: center; padding: 30px; margin-bottom: 20px; }
     .score-circle {
-      width: 140px;
-      height: 140px;
+      width: 150px; height: 150px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       margin: 0 auto 15px;
       font-size: 2.8rem;
       font-weight: 900;
       color: white;
       position: relative;
-      animation: pulseScore 2s ease-in-out infinite;
+      animation: pulseScore 1.5s ease-in-out infinite;
     }
     @keyframes pulseScore {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(108,92,231,0.3); }
-      50% { box-shadow: 0 0 0 15px rgba(108,92,231,0); }
+      0%, 100% { box-shadow: 0 0 0 0 rgba(214,48,49,0.4); }
+      50% { box-shadow: 0 0 0 18px rgba(214,48,49,0); }
     }
     .score-circle::after {
       content: '';
       position: absolute;
-      inset: -8px;
+      inset: -10px;
       border-radius: 50%;
       border: 3px dashed;
       border-color: inherit;
       opacity: 0.25;
-      animation: spin 20s linear infinite;
+      animation: spin 12s linear infinite;
     }
-    .score-safe { background: var(--secondary); border-color: var(--secondary); }
-    .score-neutral { background: var(--warning); border-color: var(--warning); color: #856404; }
-    .score-warning { background: var(--danger); border-color: var(--danger); }
+    .score-danger { background: linear-gradient(135deg, var(--danger-deep), #C0392B); border-color: var(--danger-deep); }
+    .score-high { background: linear-gradient(135deg, var(--danger), #E74C3C); border-color: var(--danger); }
+    .score-elevated { background: linear-gradient(135deg, #E67E22, #F39C12); border-color: #E67E22; color: white; }
     .score-label { font-size: 1.1rem; font-weight: 700; margin-top: 8px; }
+    .threat-level {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--danger-deep);
+      margin-top: 6px;
+    }
+
     .metrics {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -306,15 +485,15 @@
       margin-bottom: 20px;
     }
     .metric {
-      background: linear-gradient(135deg, #F8F9FD, #F0EEFF);
+      background: linear-gradient(135deg, #FFF5F5, #FFEEF0);
       border-radius: 14px;
       padding: 18px;
-      border: 1px solid rgba(108,92,231,0.08);
+      border: 1px solid rgba(214,48,49,0.08);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .metric:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(108,92,231,0.1);
+      box-shadow: 0 6px 20px rgba(214,48,49,0.1);
     }
     .metric-label {
       font-size: 0.8rem;
@@ -338,6 +517,7 @@
       transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       width: 0;
       position: relative;
+      overflow: hidden;
     }
     .metric-fill::after {
       content: '';
@@ -350,58 +530,76 @@
       0% { transform: translateX(-100%); }
       100% { transform: translateX(100%); }
     }
-    .metric-fill.green { background: linear-gradient(90deg, #00B894, #55EFC4); }
+    .metric-fill.red { background: linear-gradient(90deg, #D63031, #E17055); }
+    .metric-fill.orange { background: linear-gradient(90deg, #E67E22, #F39C12); }
     .metric-fill.yellow { background: linear-gradient(90deg, #FDCB6E, #FFEAA7); }
-    .metric-fill.red { background: linear-gradient(90deg, #E17055, #FAB1A0); }
-    .metric-value { font-size: 0.85rem; font-weight: 700; color: var(--text); }
-    .metric-note { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; }
+    .metric-value { font-size: 0.85rem; font-weight: 700; color: var(--danger-deep); }
+    .metric-note { font-size: 0.78rem; color: var(--text-light); margin-top: 4px; font-weight: 600; }
+
     .verdict-card { text-align: center; padding: 25px; }
-    .verdict-text { font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; }
+    .verdict-card.danger-border { border-color: rgba(214,48,49,0.4); }
+    .verdict-emoji { font-size: 3.5rem; margin-bottom: 12px; }
+    .verdict-text { font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; color: var(--danger-deep); }
+
     .recommendations { margin-top: 15px; text-align: left; }
-    .recommendations h3 { font-size: 1rem; color: var(--primary); margin-bottom: 12px; }
+    .recommendations h3 {
+      font-size: 1rem;
+      color: var(--danger-deep);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
     .rec-item {
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 0;
-      border-bottom: 1px solid #f0f0f0;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(214,48,49,0.1);
       font-size: 0.95rem;
+      font-weight: 600;
     }
     .rec-item:last-child { border-bottom: none; }
     .rec-icon {
-      width: 30px;
-      height: 30px;
-      background: linear-gradient(135deg, var(--primary-light), var(--primary));
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--danger), var(--danger-deep));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
       flex-shrink: 0;
     }
+
     .new-scan-btn {
       display: block;
       width: 100%;
       padding: 16px;
       font-size: 1.1rem;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--danger-deep);
       background: white;
-      border: 2px solid var(--primary);
+      border: 2px solid var(--danger-deep);
       border-radius: 14px;
       cursor: pointer;
       transition: all 0.3s;
       font-family: 'Nunito', sans-serif;
       margin-top: 15px;
     }
-    .new-scan-btn:hover { background: var(--primary); color: white; }
+    .new-scan-btn:hover { background: var(--danger-deep); color: white; }
 
+    /* ===== FOOTER ===== */
     footer {
       margin-top: 60px;
       padding: 30px 20px;
       text-align: center;
       border-top: 1px solid rgba(108,92,231,0.1);
-      position: relative;
+    }
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 1.3rem;
+      opacity: 0.35;
     }
     .footer-brand {
       font-size: 1.2rem;
@@ -420,55 +618,86 @@
     }
     .footer-disclaimer {
       color: #B2BEC3;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       line-height: 1.5;
       max-width: 500px;
       margin: 0 auto;
     }
-    .footer-icons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 16px;
-      font-size: 1.3rem;
-      opacity: 0.4;
-    }
 
     @media (max-width: 600px) {
-      h1 { font-size: 1.7rem; }
+      h1 { font-size: 2rem; }
+      .slogan { font-size: 0.9rem; }
       .metrics { grid-template-columns: 1fr; }
       .result-header { flex-direction: column; text-align: center; }
       .upload-zone { padding: 35px 20px; }
+      .how-it-works { grid-template-columns: 1fr; }
+      .hero-stats { gap: 10px; }
+      .hero-stat { min-width: 90px; padding: 10px 14px; }
     }
   </style>
 </head>
 <body>
   <div class="bg-pattern"></div>
   <div class="floating-particles" id="particles"></div>
+
   <div class="container">
     <header>
-      <div class="logo">🏠👵</div>
+      <div class="logo">🔍👵🚨</div>
       <h1>ПОЛЬЗА</h1>
-      <p class="subtitle">Подъездный Наблюдатель Лавочкового Звена</p>
+      <div class="slogan">Бабушки на контроле вашего блага!</div>
+      <p class="subtitle">Система подъездного мониторинга v2.0</p>
+
+      <div class="badge-row">
+        <span class="badge badge-red">🚨 Повышенная бдительность</span>
+        <span class="badge badge-purple">🔬 Глубокий анализ</span>
+        <span class="badge badge-green">🛡️ Защита подъезда</span>
+      </div>
+
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="hero-stat-value">1 247</div>
-          <div class="hero-stat-label">Проверок</div>
+          <div class="hero-stat-value">3 891</div>
+          <div class="hero-stat-label">Задержано*</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-value">98.3%</div>
-          <div class="hero-stat-label">Точность*</div>
+          <div class="hero-stat-value">99.7%</div>
+          <div class="hero-stat-label">Угроз*</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-value">42</div>
+          <div class="hero-stat-value">142</div>
           <div class="hero-stat-label">Лавочки</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">24/7</div>
+          <div class="hero-stat-label">Дежурство</div>
         </div>
       </div>
     </header>
+
+    <div class="how-it-works">
+      <div class="step">
+        <div class="step-icon">📸</div>
+        <div class="step-num">1</div>
+        <div class="step-title">Сфотографируйте</div>
+        <div class="step-desc">Незаметно сфоткайте подозрительного</div>
+      </div>
+      <div class="step">
+        <div class="step-icon">🔬</div>
+        <div class="step-num">2</div>
+        <div class="step-title">Загрузите</div>
+        <div class="step-desc">Система проведёт глубокий анализ</div>
+      </div>
+      <div class="step">
+        <div class="step-icon">🚨</div>
+        <div class="step-num">3</div>
+        <div class="step-title">Действуйте!</div>
+        <div class="step-desc">Следуйте рекомендациям совета</div>
+      </div>
+    </div>
+
     <div class="upload-zone" id="uploadZone">
       <div id="uploadPrompt">
-        <span class="upload-icon">📸</span>
-        <p class="upload-text">Загрузите фотографию</p>
+        <span class="upload-icon">🎯</span>
+        <p class="upload-text">Загрузите фото подозрительного субъекта</p>
         <p class="upload-hint">Перетащите изображение сюда или нажмите для выбора</p>
       </div>
       <div class="preview-container" id="previewContainer">
@@ -477,20 +706,23 @@
       </div>
       <input type="file" id="fileInput" accept="image/jpeg,image/png,image/gif,image/webp">
     </div>
-    <button class="analyze-btn" id="analyzeBtn">🔍 Начать анализ</button>
+
+    <button class="analyze-btn" id="analyzeBtn">🚨 Проверить на опасность</button>
+
     <div class="results" id="results"></div>
 
     <footer>
       <div class="footer-icons">🏠 🪑 🌻 ☕ 🧶</div>
-      <div class="footer-brand">ПОЛЬЗА v1.0</div>
-      <div class="footer-tagline">Безопасность подъезда — в надёжных руках</div>
+      <div class="footer-brand">ПОЛЬЗА v2.0</div>
+      <div class="footer-tagline">Бабушки на контроле вашего блага!</div>
       <div class="footer-disclaimer">
         Демо-версия. Образовательный проект. Все результаты генерируются случайным образом
         и не являются реальным анализом. Не используется искусственный интеллект или распознавание лиц.
-        *Статистика вымышлена.
+        *Вся статистика вымышлена.
       </div>
     </footer>
   </div>
+
   <div class="loading-overlay" id="loading">
     <div class="spinner"></div>
     <p class="loading-text" id="loadingText">Анализируем...</p>
@@ -513,48 +745,57 @@
     let imageDataUrl = null;
 
     const loadingMessages = [
-      { text: 'Сканируем одежду...', sub: 'Проверяем наличие подозрительных элементов' },
-      { text: 'Анализируем походку...', sub: 'Определяем степень целеустремлённости' },
-      { text: 'Консультируемся с бабушками...', sub: 'Собираем экспертные мнения' },
-      { text: 'Проверяем по базе соседей...', sub: 'Сверяем с картотекой лавочки №3' },
-      { text: 'Считаем пирожки...', sub: 'Оцениваем добрые намерения' },
-      { text: 'Формируем вердикт...', sub: 'Почти готово!' }
+      { text: 'Сканируем внешность...', sub: 'Оцениваем уровень подозрительности' },
+      { text: 'Анализируем одежду...', sub: 'Выявляем тревожные признаки' },
+      { text: 'Экстренное совещание бабушек...', sub: 'Созываем лавочный совет' },
+      { text: 'Проверяем по базе нарушителей...', sub: 'Сверяем с чёрным списком подъезда' },
+      { text: 'Оцениваем степень угрозы...', sub: 'Определяем уровень опасности' },
+      { text: 'Готовим план перехвата...', sub: 'Формируем рекомендации!' }
     ];
 
     const clothingNotes = [
-      'Опрятная, чистая одежда', 'Одежда немного помята, но приемлемо',
-      'Спортивный стиль, удобная обувь', 'Классический стиль, деловой вид',
-      'Свободный стиль, повседневная одежда', 'Яркая, привлекающая внимание одежда',
-      'Тёмная однотонная одежда', 'Многослойная одежда, свободный крой'
+      'Подозрительно тёмная одежда — скрывает что-то',
+      'Слишком яркая — отвлекает внимание от истинных намерений',
+      'Мятая и неопрятная — явно ведёт разгульный образ жизни',
+      'Капюшон — классический признак злоумышленника',
+      'Спортивный костюм — подозрительно активен для этого района',
+      'Слишком нарядный — точно что-то замышляет',
+      'Странная обувь — явно не из нашего двора',
+      'Карманы оттопырены — несёт что-то запрещённое'
     ];
     const postureNotes = [
-      'Уверенная, прямая осанка', 'Расслабленная походка',
-      'Немного сутулится, руки в карманах', 'Быстрый, целенаправленный шаг',
-      'Спокойная, неторопливая походка', 'Энергичные движения'
+      'Подозрительно быстрый шаг — убегает от чего-то',
+      'Слишком медленно идёт — высматривает квартиры',
+      'Сутулится — прячет лицо от камер',
+      'Руки в карманах — скрывает отмычки',
+      'Оглядывается — ищет свидетелей',
+      'Слишком уверенная походка — рецидивист'
     ];
     const verdicts = [
-      { text: 'Вероятно, идёт к бабушке с пирожками 🥧', level: 'safe' },
-      { text: 'Похож на соседа с 5-го этажа 🏠', level: 'safe' },
-      { text: 'Скорее всего курьер с доставкой 📦', level: 'safe' },
-      { text: 'Вероятно, студент — зачёты сами себя не сдадут 📚', level: 'neutral' },
-      { text: 'Может быть сантехник, вызывали? 🔧', level: 'safe' },
-      { text: 'Явно торопится — наверное, опаздывает на работу 💼', level: 'safe' },
-      { text: 'Подозрительно улыбается — наверное, влюблён 💕', level: 'neutral' },
-      { text: 'Несёт что-то тяжёлое — помочь бы надо! 💪', level: 'safe' },
-      { text: 'Незнакомец, но выглядит мирно 🕊️', level: 'neutral' },
-      { text: 'Идёт с собакой — значит, хороший человек 🐕', level: 'safe' },
-      { text: 'Молодёжь нынче... но вроде приличный 👀', level: 'neutral' },
-      { text: 'На вид порядочный гражданин ✅', level: 'safe' }
+      { text: 'КРАЙНЕ ПОДОЗРИТЕЛЬНЫЙ СУБЪЕКТ! Не спускайте глаз!', emoji: '🚨' },
+      { text: 'ТРЕВОГА! Ранее не замечен во дворе!', emoji: '⚠️' },
+      { text: 'ВНИМАНИЕ! Потенциальный нарушитель общественного покоя!', emoji: '🔴' },
+      { text: 'ОПАСНОСТЬ! Похож на того, кто ломал почтовые ящики в 2019!', emoji: '❗' },
+      { text: 'УГРОЗА ОБНАРУЖЕНА! Этот тип точно замышляет недоброе!', emoji: '🚫' },
+      { text: 'БДИТЕЛЬНОСТЬ! Явные признаки разгульного образа жизни!', emoji: '🆘' },
+      { text: 'ПЕРЕХВАТ! Подозревается в краже цветов из клумбы!', emoji: '🚷' },
+      { text: 'СИГНАЛ! Возможно, это он оставлял окурки у подъезда!', emoji: '🔥' },
+      { text: 'ТРЕВОГА! Слишком подозрительно вежливый — точно мошенник!', emoji: '🎭' },
+      { text: 'КРАСНЫЙ КОД! Ни разу не здоровался с бабушками!', emoji: '💀' }
     ];
     const recommendations = [
-      'Угостить пирожком для установления контакта',
-      'Спросить, к кому идёт — стандартная процедура',
-      'Кивнуть и поздороваться',
-      'Продолжать наблюдение с лавочки',
-      'Предложить семечки — свои люди не откажутся',
-      'Поинтересоваться здоровьем бабушки/дедушки',
-      'Одобрительно покачать головой',
-      'Записать время прихода в блокнотик'
+      'Немедленно позвонить в полицию по 102!',
+      'Не пускать в подъезд ни при каких обстоятельствах!',
+      'Сделать строгое замечание и потребовать документы!',
+      'Сфотографировать повторно и отправить в чат дома!',
+      'Вызвать подкрепление с соседних лавочек!',
+      'Перекрыть вход — встать стеной!',
+      'Записать номер машины, если приехал на авто!',
+      'Включить сирену на телефоне для устрашения!',
+      'Начать громко обсуждать, чтобы он знал, что замечен!',
+      'Позвонить председателю ТСЖ для экстренного заседания!',
+      'Вести наблюдение из окна до полного исчезновения!',
+      'Опросить соседей — может, кто-то его знает'
     ];
 
     uploadZone.addEventListener('click', (e) => {
@@ -604,7 +845,7 @@
     }
 
     function pick(arr, seed) { return arr[seed % arr.length]; }
-    function score(seed, min) { return min + (seed % (101 - min)); }
+    function dangerScore(seed, min, max) { return min + (seed % (max - min + 1)); }
 
     analyzeBtn.addEventListener('click', () => {
       if (!imageDataUrl) return;
@@ -625,12 +866,19 @@
         analyzeBtn.disabled = false;
 
         const h = hashCode(imageDataUrl);
-        const clothingVal = score(h * 3, 30);
-        const postureVal = score(h * 7, 25);
-        const groomingVal = score(h * 11, 20);
-        const behaviorVal = score(h * 13, 35);
+        const clothingVal = dangerScore(h * 3, 55, 95);
+        const postureVal = dangerScore(h * 7, 60, 98);
+        const groomingVal = dangerScore(h * 11, 50, 90);
+        const behaviorVal = dangerScore(h * 13, 65, 99);
         const overall = Math.round((clothingVal + postureVal + groomingVal + behaviorVal) / 4);
         const now = new Date().toLocaleString('ru-RU');
+
+        const recSet = new Set();
+        let seed = h;
+        while (recSet.size < 4) {
+          recSet.add(pick(recommendations, seed));
+          seed += 7;
+        }
 
         const data = {
           imageUrl: imageDataUrl,
@@ -642,74 +890,102 @@
           },
           overall,
           verdict: pick(verdicts, h + 3),
-          recommendations: [pick(recommendations, h + 4), pick(recommendations, h + 5), pick(recommendations, h + 6)],
-          timestamp: now,
-          disclaimer: 'ДЕМО-ВЕРСИЯ: Результаты сгенерированы случайно и не являются реальным анализом. Приложение создано исключительно в образовательных целях.'
+          recommendations: [...recSet],
+          timestamp: now
         };
 
         renderResults(data);
       }, 4200);
     });
 
-    function getScoreClass(v) { return v >= 60 ? 'safe' : v >= 40 ? 'neutral' : 'warning'; }
-    function getBarColor(v) { return v >= 60 ? 'green' : v >= 40 ? 'yellow' : 'red'; }
-    function getScoreLabel(cls) { return cls === 'safe' ? '✅ Безопасен' : cls === 'neutral' ? '🤔 Нейтрально' : '⚠️ Внимание'; }
+    function getScoreClass(v) {
+      if (v >= 80) return 'danger';
+      if (v >= 65) return 'high';
+      return 'elevated';
+    }
+    function getBarColor(v) {
+      if (v >= 75) return 'red';
+      if (v >= 60) return 'orange';
+      return 'yellow';
+    }
+    function getThreatLabel(v) {
+      if (v >= 85) return { text: '🚨 КРИТИЧЕСКАЯ УГРОЗА', level: 'КРАСНЫЙ УРОВЕНЬ' };
+      if (v >= 75) return { text: '⚠️ ВЫСОКАЯ ОПАСНОСТЬ', level: 'ОРАНЖЕВЫЙ УРОВЕНЬ' };
+      if (v >= 65) return { text: '🔶 ПОВЫШЕННАЯ ОПАСНОСТЬ', level: 'ЖЁЛТЫЙ УРОВЕНЬ' };
+      return { text: '⚡ ПОДОЗРИТЕЛЬНЫЙ', level: 'УРОВЕНЬ БДИТЕЛЬНОСТИ' };
+    }
 
     function renderResults(data) {
       const cls = getScoreClass(data.overall);
+      const threat = getThreatLabel(data.overall);
+      const recIcons = ['🚔','🚫','📢','📸','🆘','🧱','📝','📱','🗣️','📞','👁️','🔍'];
+
       resultsDiv.innerHTML = `
-        <div class="result-card">
+        <div class="alert-banner">
+          <span>🚨</span>
+          <span>ВНИМАНИЕ! ОБНАРУЖЕНА ПОТЕНЦИАЛЬНАЯ УГРОЗА!</span>
+          <span>🚨</span>
+        </div>
+
+        <div class="result-card danger-border">
           <div class="result-header">
-            <img class="result-photo" src="${data.imageUrl}" alt="Фото">
+            <img class="result-photo" src="${data.imageUrl}" alt="Субъект">
             <div class="result-summary">
-              <h2>Результат анализа</h2>
-              <p class="result-time">${data.timestamp}</p>
+              <h2>Субъект обнаружен!</h2>
+              <p class="result-time">Время фиксации: ${data.timestamp}</p>
+              <span class="result-status-badge">Требует внимания</span>
             </div>
           </div>
         </div>
-        <div class="result-card overall-score">
-          <div class="score-circle score-${cls}">${data.overall}</div>
-          <p class="score-label">${getScoreLabel(cls)}</p>
+
+        <div class="result-card danger-border overall-score">
+          <div class="score-circle score-${cls}">${data.overall}%</div>
+          <p class="score-label">${threat.text}</p>
+          <p class="threat-level">${threat.level}</p>
         </div>
-        <div class="result-card">
+
+        <div class="result-card danger-border">
           <div class="metrics">
             <div class="metric">
-              <div class="metric-label">👔 Одежда</div>
+              <div class="metric-label">👔 Подозрительность одежды</div>
               <div class="metric-bar"><div class="metric-fill ${getBarColor(data.scores.clothing.value)}" data-width="${data.scores.clothing.value}"></div></div>
-              <div class="metric-value">${data.scores.clothing.value}/100</div>
+              <div class="metric-value">${data.scores.clothing.value}% угрозы</div>
               <div class="metric-note">${data.scores.clothing.note}</div>
             </div>
             <div class="metric">
-              <div class="metric-label">🚶 Походка</div>
+              <div class="metric-label">🚶 Подозрительность походки</div>
               <div class="metric-bar"><div class="metric-fill ${getBarColor(data.scores.posture.value)}" data-width="${data.scores.posture.value}"></div></div>
-              <div class="metric-value">${data.scores.posture.value}/100</div>
+              <div class="metric-value">${data.scores.posture.value}% угрозы</div>
               <div class="metric-note">${data.scores.posture.note}</div>
             </div>
             <div class="metric">
-              <div class="metric-label">💇 Ухоженность</div>
+              <div class="metric-label">🧔 Неухоженность</div>
               <div class="metric-bar"><div class="metric-fill ${getBarColor(data.scores.grooming.value)}" data-width="${data.scores.grooming.value}"></div></div>
-              <div class="metric-value">${data.scores.grooming.value}/100</div>
+              <div class="metric-value">${data.scores.grooming.value}% угрозы</div>
             </div>
             <div class="metric">
-              <div class="metric-label">🎭 Поведение</div>
+              <div class="metric-label">🎭 Подозрительное поведение</div>
               <div class="metric-bar"><div class="metric-fill ${getBarColor(data.scores.behavior.value)}" data-width="${data.scores.behavior.value}"></div></div>
-              <div class="metric-value">${data.scores.behavior.value}/100</div>
+              <div class="metric-value">${data.scores.behavior.value}% угрозы</div>
             </div>
           </div>
         </div>
-        <div class="result-card verdict-card">
+
+        <div class="result-card danger-border verdict-card">
+          <div class="verdict-emoji">${data.verdict.emoji}</div>
           <div class="verdict-text">${data.verdict.text}</div>
           <div class="recommendations">
-            <h3>📋 Рекомендации лавочного совета:</h3>
+            <h3>🚨 ЭКСТРЕННЫЕ МЕРЫ:</h3>
             ${data.recommendations.map((r, i) => `
               <div class="rec-item">
-                <span class="rec-icon">${['👁️','📝','🤝'][i]}</span>
+                <span class="rec-icon">${recIcons[i % recIcons.length]}</span>
                 <span>${r}</span>
               </div>
             `).join('')}
           </div>
         </div>
-        <button class="new-scan-btn" onclick="newScan()">📸 Новое сканирование</button>
+
+        <button class="new-scan-btn" onclick="newScan()">🎯 Проверить следующего</button>
       `;
       resultsDiv.style.display = 'block';
       resultsDiv.scrollIntoView({ behavior: 'smooth' });
@@ -728,8 +1004,8 @@
 
     (function initParticles() {
       const container = document.getElementById('particles');
-      const emojis = ['🌻','🧶','☕','🪑','🥧','🐱','🌸','🍪','📖','🧣'];
-      for (let i = 0; i < 12; i++) {
+      const emojis = ['🚨','👵','🔍','🪑','🚔','👁️','🛡️','🌻','⚠️','🧶'];
+      for (let i = 0; i < 15; i++) {
         const p = document.createElement('span');
         p.className = 'particle';
         p.textContent = emojis[i % emojis.length];
