@@ -1,0 +1,21 @@
+{
+  "name": "3323",
+  "version": "1.0.0",
+  "description": "Польза — Подъездный Наблюдатель Лавочкового Звена (демо)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"No tests\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:42267/git/ruslan6767/3323"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "multer": "^2.1.1"
+  }
+}
